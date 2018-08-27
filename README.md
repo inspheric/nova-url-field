@@ -18,7 +18,7 @@ Add the field to your resource in the ```fields``` method:
 ```php
 use Inspheric\Fields\Url;
 
-Url::make('Url')
+Url::make('Homepage')
     ->rules('url', /* ... */),
 ```
 
@@ -31,7 +31,7 @@ It is recommended that you include the standard `url` and/or `active_url` valida
 Make the field display with a label instead of the URL value itself on the detail or index pages:
 
 ```php
-Url::make('Url')
+Url::make('Homepage')
     ->label('External Link'),
 ```
 
@@ -41,7 +41,7 @@ The label is only displayed if the link is clickable, otherwise the URL value is
 Make the field display as a link on the detail page:
 
 ```php
-Url::make('Url')
+Url::make('Homepage')
     ->clickable(),
 ```
 
@@ -49,7 +49,7 @@ Url::make('Url')
 Make the field display as a link on the index page:
 
 ```php
-Url::make('Url')
+Url::make('Homepage')
     ->clickableOnIndex(),
 ```
 
