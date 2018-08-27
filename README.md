@@ -87,4 +87,4 @@ The field is displayed as an `<a href="...">` element with an icon and a custom 
 ### Form
 ![form-field](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/form-field.png)
 
-The field is displayed as an `<input type="email">` element.
+The field is displayed as an `<input type="url">` element.
