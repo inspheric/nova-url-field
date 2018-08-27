@@ -35,6 +35,8 @@ Url::make('Homepage')
     ->label('External Link'),
 ```
 
+You can, of course use the Laravel `trans()` function.
+
 The label is only displayed if the link is clickable, otherwise the URL value is displayed.
 
 #### Clickable
