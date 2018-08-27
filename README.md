@@ -35,6 +35,8 @@ Url::make('Url')
     ->label('External Link'),
 ```
 
+The label is only displayed if the link is clickable, otherwise the URL value is displayed.
+
 #### Clickable
 Make the field display as a link on the detail page:
 
@@ -62,6 +64,11 @@ The field is displayed as a plain `<span>` element.
 
 The field is displayed as an `<a href="...">` element with an icon.
 
+### Index (clickable with label)
+![index-field-clickable-label](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/index-field-clickable-label.png)
+
+The field is displayed as an `<a href="...">` element with an icon and a custom label.
+
 ### Detail (default)
 ![detail-field](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/detail-field-plain.png)
 
@@ -71,6 +78,11 @@ The field is displayed as a plain `<span>` element.
 ![detail-field-clickable](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/detail-field-clickable.png)
 
 The field is displayed as an `<a href="...">` element with an icon.
+
+### Detail (clickable with label)
+![detail-field-clickable-label](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/detail-field-clickable-label.png)
+
+The field is displayed as an `<a href="...">` element with an icon and a custom label.
 
 ### Form
 ![form-field](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/form-field.png)
