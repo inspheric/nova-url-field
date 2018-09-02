@@ -15,6 +15,7 @@
         "laravel-nova": "^1.0"
     },
     "dependencies": {
+        "simple-icons": "^1.8.7",
         "vue": "^2.5.0"
     }
 }

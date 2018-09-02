@@ -6259,6 +6259,10 @@ signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
+simple-icons@^1.8.7:
+  version "1.8.7"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-1.8.7.tgz#6779a5dedba56cc0b29a7b99530442f648a762f0"
+
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
