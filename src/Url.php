@@ -14,7 +14,7 @@ class Url extends Text
     public $component = 'url-field';
 
     /**
-     * Whether the email should be displayed as a clickable
+     * Whether the URL should be displayed as a clickable
      * link on the detail page.
      *
      * @param  string $label
@@ -26,7 +26,7 @@ class Url extends Text
     }
 
     /**
-     * Whether the email should be displayed as a clickable
+     * Whether the URL should be displayed as a clickable
      * link on the detail page.
      *
      * @param  bool $clickable
@@ -38,7 +38,7 @@ class Url extends Text
     }
 
     /**
-     * Whether the email should be displayed as a clickable
+     * Whether the URL should be displayed as a clickable
      * mailto link on the index page.
      *
      * @param  bool $clickable
