@@ -8,15 +8,18 @@
             >
                 <svg xmlns="http://www.w3.org/2000/svg"
                     class="fill-current mr-2"
-                    :style="{ color: '#'+field.icon.hex }"
+                    :style="{ color: field.color }"
                     width="16"
                     height="16"
-                    viewBox="0 0 24 24"
+                    :viewBox="viewBox"
                     role="presentation"
-                    v-html="field.icon.svg"></svg>
+                    v-html="field.icon"></svg>
 
-                <span>
-                    {{ field.icon.title }}
+                <span v-if="field.label">
+                    {{ field.label }}
+                </span>
+                <span v-else>
+                    {{ field.name }}
                 </span>
             </a>
             <span v-else-if="field.value">{{ field.value }}</span>
@@ -28,5 +31,12 @@
 
 export default {
     props: ['resource', 'resourceName', 'resourceId', 'field', 'clickable'],
+
+    computed: {
+        viewBox() {
+            const size = this.field.size ? this.field.size : 24;
+            return `0 0 ${size} ${size}`
+        }
+    }
 }
 </script>
