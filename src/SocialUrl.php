@@ -181,9 +181,9 @@ class SocialUrl extends Text
      *
      * @return string
      */
-    protected function guessService()
+    protected function guessService($service, $value)
     {
-        return $this->service ?: SocialIcon::withCustomIcons($this->customIcons)->guessService($this->value);
+        return !is_numeric($service) ?: SocialIcon::withCustomIcons($this->customIcons)->guessService($value);
     }
 
     /**
@@ -193,17 +193,23 @@ class SocialUrl extends Text
      */
     public function meta()
     {
-        $service = $this->guessService();
-        $icon = SocialIcon::withCustomIcons($this->customIcons)->withCustomOverrides($this->customOverrides)->getIcon($service);
+        $icons = [];
+        $values = [];
+
+        foreach ((array) $this->value as $key => $value) {
+            $service = $this->guessService($key, $value);
+            $icon = SocialIcon::withCustomIcons($this->customIcons)->withCustomOverrides($this->customOverrides)->getIcon($service);
+
+            $icons['service'][$key] = $service;
+            $icons['label'][$key] = @$icon['label'];
+            $icons['icon'][$key] = @$icon['svg'];
+            $icons['color'][$key] = @$icon['hex'] ? '#'.ltrim($icon['hex'], '#') : null;
+            $icons['size'][$key] = @$icon['size'] ?: 24;
+        }
 
         return array_merge([
             'clickable' => true,
             'social'    => true,
-            'service'   => $service,
-            'label'     => $this->label ?: @$icon['label'],
-            'icon'      => $icon['svg'],
-            'color'     => @$icon['hex'] ? '#'.ltrim($icon['hex'], '#') : null,
-            'size'      => @$icon['size'] ?: 24,
-        ], $this->meta);
+        ], $icons, $this->meta);
     }
 }
