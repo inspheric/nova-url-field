@@ -14,8 +14,14 @@ class Url extends Text
     public $component = 'url-field';
 
     /**
-     * Whether the email should be displayed as a clickable
-     * link on the detail page.
+     * The callback to be used to resolve the field's label.
+     *
+     * @var \Closure
+     */
+    public $labelCallback;
+
+    /**
+     * The label to display instead of the URL.
      *
      * @param  string $label
      * @return $this
@@ -26,7 +32,20 @@ class Url extends Text
     }
 
     /**
-     * Whether the email should be displayed as a clickable
+     * Define the callback that should be used to resolve the field's label.
+     *
+     * @param  callable  $labelCallback
+     * @return $this
+     */
+    public function labelUsing(callable $labelCallback)
+    {
+        $this->labelCallback = $labelCallback;
+
+        return $this;
+    }
+
+    /**
+     * Whether the URL should be displayed as a clickable
      * link on the detail page.
      *
      * @param  bool $clickable
@@ -38,8 +57,8 @@ class Url extends Text
     }
 
     /**
-     * Whether the email should be displayed as a clickable
-     * mailto link on the index page.
+     * Whether the URL should be displayed as a clickable
+     * link on the index page.
      *
      * @param  bool $clickable
      * @return $this
@@ -47,5 +66,34 @@ class Url extends Text
     public function clickableOnIndex(bool $clickable = true)
     {
         return $this->withMeta(['clickableOnIndex' => $clickable]);
+    }
+
+    /**
+     * Whether the URL should be displayed as a clickable
+     * link on both the index and detail pages.
+     *
+     * @param  bool $clickable
+     * @return $this
+     */
+    public function alwaysClickable(bool $clickable = true)
+    {
+        return $this->clickable($clickable)
+            ->clickableOnIndex($clickable);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function resolve($resource, $attribute = null)
+    {
+        parent::resolve($resource, $attribute);
+
+        if (is_callable($this->labelCallback)) {
+            $value = data_get($resource, str_replace('->', '.', $attribute), $placeholder = new \stdClass());
+
+            if ($value !== $placeholder) {
+                $this->label(call_user_func($this->labelCallback, $value, $resource));
+            }
+        }
     }
 }
