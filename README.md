@@ -59,7 +59,7 @@ Url::make('Homepage')
     ->domainLabel(),
 ```
 
-For example, the label for the field value `https://www.example.com/path?query=value&another=true#fragment` would display simply as `<a href="https://www.example.com/path?query=value&another=true#fragment">example.com</a>`.
+For example, the label for the field value `https://www.example.com/path?query=value&another=true#fragment` would display simply as `example.com`.
 
 This is resolved after the `displayUsing()` callback if you have one, so if you modify the display of the URL in some way, the modified value will be passed to this label.
 
@@ -71,7 +71,7 @@ Url::make('Homepage')
     ->nameLabel(),
 ```
 
-This would be displayed as `<a href="...">Homepage</a>`.
+The label would be displayed as `Homepage`.
 
 #### Clickable
 Make the field display as a link on the detail page:
