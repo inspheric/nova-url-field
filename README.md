@@ -35,9 +35,21 @@ Url::make('Homepage')
     ->label('External Link'),
 ```
 
-You can, of course use the Laravel `trans()` function.
+You can, of course use the Laravel `trans()` or `__()` functions to translate the label.
 
 The label is only displayed if the link is clickable, otherwise the URL value is displayed.
+
+### Label Using
+Make the field display with a label using a callback:
+
+```php
+Url::make('Homepage')
+    ->labelUsing(function($value, $resource) {
+        return $this->title;
+    }),
+```
+
+The arguments `$value` and `$resource` are passed in the same way as the callback for `resolveUsing()`, but are optional.
 
 #### Clickable
 Make the field display as a link on the detail page:
@@ -53,6 +65,14 @@ Make the field display as a link on the index page:
 ```php
 Url::make('Homepage')
     ->clickableOnIndex(),
+```
+
+#### Always Clickable
+Combination of the two functions above for simplicity:
+
+```php
+Url::make('Homepage')
+    ->alwaysClickable(),
 ```
 
 ## Appearance
