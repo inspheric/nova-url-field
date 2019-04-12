@@ -53,7 +53,7 @@ class Url extends Text
     {
         return $this->labelUsing(function($value) {
             $value = parse_url($value, PHP_URL_HOST) ?: $value;
-            return preg_replace('`^www\d?\.`', '', $value);
+            return preg_replace('`^(www\d?|m)\.`', '', $value);
         });
     }
 

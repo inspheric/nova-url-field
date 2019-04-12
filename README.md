@@ -51,6 +51,28 @@ Url::make('Homepage')
 
 The arguments `$value` and `$resource` are passed in the same way as the callback for `resolveUsing()`, but are optional.
 
+#### Domain Label
+A shortcut method to display the domain part only of the URL (i.e. without `https?://www.`) as the label:
+
+```php
+Url::make('Homepage')
+    ->domainLabel(),
+```
+
+For example, the label for the field value `https://www.example.com/path?query=value&another=true#fragment` would display simply as `<a href="https://www.example.com/path?query=value&another=true#fragment">example.com</a>`.
+
+This is resolved after the `displayUsing()` callback if you have one, so if you modify the display of the URL in some way, the modified value will be passed to this label.
+
+#### Name Label
+A shortcut method to display the name of the field as the label:
+
+```php
+Url::make('Homepage')
+    ->nameLabel(),
+```
+
+This would be displayed as `<a href="...">Homepage</a>`.
+
 #### Clickable
 Make the field display as a link on the detail page:
 
