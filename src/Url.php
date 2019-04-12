@@ -84,16 +84,12 @@ class Url extends Text
     /**
      * @inheritDoc
      */
-    public function resolve($resource, $attribute = null)
+    public function resolveForDisplay($resource, $attribute = null)
     {
-        parent::resolve($resource, $attribute);
+        parent::resolveForDisplay($resource, $attribute);
 
         if (is_callable($this->labelCallback)) {
-            $value = data_get($resource, str_replace('->', '.', $attribute), $placeholder = new \stdClass());
-
-            if ($value !== $placeholder) {
-                $this->label(call_user_func($this->labelCallback, $value, $resource));
-            }
+                $this->label(call_user_func($this->labelCallback, $this->value, $resource));
         }
     }
 }
