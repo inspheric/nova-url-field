@@ -45,6 +45,29 @@ class Url extends Text
     }
 
     /**
+     * Display the domain only of the URL as the label.
+     *
+     * @return $this
+     */
+    public function domainLabel()
+    {
+        return $this->labelUsing(function($value) {
+            $value = parse_url($value, PHP_URL_HOST) ?: $value;
+            return preg_replace('`^www\d?\.`', '', $value);
+        });
+    }
+
+    /**
+     * Display the name of the field as the label.
+     *
+     * @return $this
+     */
+    public function nameLabel()
+    {
+        return $this->label($this->name);
+    }
+
+    /**
      * Whether the URL should be displayed as a clickable
      * link on the detail page.
      *
