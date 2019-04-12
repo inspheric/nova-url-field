@@ -39,7 +39,7 @@ You can, of course use the Laravel `trans()` or `__()` functions to translate th
 
 The label is only displayed if the link is clickable, otherwise the URL value is displayed.
 
-### Label Using
+#### Label Using
 Make the field display with a label using a callback:
 
 ```php
