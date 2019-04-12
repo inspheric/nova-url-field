@@ -1,16 +1,14 @@
 <template>
-    <default-field :field="field">
+    <default-field :field="field" :errors="errors">
         <template slot="field">
-            <input :id="field.name" type="url"
+            <input
                 class="w-full form-control form-input form-input-bordered"
-                :class="errorClasses"
-                :placeholder="field.name"
+                :id="field.attribute"
+                :dusk="field.attribute"
                 v-model="value"
+                v-bind="extraAttributes"
+                :disabled="isReadonly"
             />
-
-            <p v-if="hasError" class="my-2 text-danger">
-                {{ firstError }}
-            </p>
         </template>
     </default-field>
 </template>
@@ -19,31 +17,25 @@
 import { FormField, HandlesValidationErrors } from 'laravel-nova'
 
 export default {
-    mixins: [FormField, HandlesValidationErrors],
+    mixins: [HandlesValidationErrors, FormField],
 
-    props: ['resourceName', 'resourceId', 'field'],
-
-    methods: {
-        /*
-         * Set the initial, internal value for the field.
-         */
-        setInitialValue() {
-          this.value = this.field.value || ''
+    computed: {
+        defaultAttributes() {
+            return {
+                type: this.field.type || 'url',
+                placeholder: this.field.placeholder || this.field.name,
+                class: this.errorClasses,
+            }
         },
 
-        /**
-         * Fill the given FormData object with the field's internal value.
-         */
-        fill(formData) {
-          formData.append(this.field.attribute, this.value || '')
-        },
+        extraAttributes() {
+            const attrs = this.field.extraAttributes
 
-        /**
-         * Update the field's internal value.
-         */
-        handleChange(value) {
-          this.value = value
-        }
-    }
+            return {
+                ...this.defaultAttributes,
+                ...attrs,
+            }
+        },
+    },
 }
 </script>
