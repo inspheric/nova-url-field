@@ -7,7 +7,7 @@
                 target="_blank"
             >
                 <svg xmlns="http://www.w3.org/2000/svg"
-                    class="fill-current mr-2"
+                    class="fill-current mr-2 flex-no-shrink"
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
