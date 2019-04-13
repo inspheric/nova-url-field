@@ -1,5 +1,7 @@
 <template>
-    <url-field :field="field" :clickable="field.clickableOnIndex"></url-field>
+    <div class="max-w-xs">
+        <url-field :field="field" :clickable="field.clickableOnIndex"></url-field>
+    </div>
 </template>
 
 <script>
