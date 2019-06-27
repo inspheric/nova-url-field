@@ -134,3 +134,7 @@ The field is displayed as an `<a href="...">` element with an icon and a custom 
 ![form-field](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/form-field.png)
 
 The field is displayed as an `<input type="url">` element.
+
+## Donate
+
+:purple_heart: If you like this package, you can show your appreciation by [donating any amount via PayPal](https://burtonsenior.com/donate/inspheric/nova-defaultable) to support ongoing development.
