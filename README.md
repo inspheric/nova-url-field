@@ -137,4 +137,4 @@ The field is displayed as an `<input type="url">` element.
 
 ## Donate
 
-:purple_heart: If you like this package, you can show your appreciation by [donating any amount via PayPal](https://burtonsenior.com/donate/inspheric/nova-defaultable) to support ongoing development.
+:purple_heart: If you like this package, you can show your appreciation by [donating any amount via PayPal](https://burtonsenior.com/donate/inspheric/nova-url-field) to support ongoing development.
