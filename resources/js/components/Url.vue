@@ -4,7 +4,7 @@
                 :title="field.value"
                 v-if="field.value && clickable"
                 class="cursor-pointer dim no-underline text-primary flex items-center"
-                target="_blank"
+                :target="field.target"
             >
                 <svg xmlns="http://www.w3.org/2000/svg"
                     class="fill-current mr-2 flex-no-shrink"

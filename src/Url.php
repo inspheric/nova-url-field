@@ -105,6 +105,17 @@ class Url extends Text
     }
 
     /**
+     * Whether the URL should be opened in the same window or in new
+     *
+     * @param  bool $target
+     * @return $this
+     */
+    public function target(string $target = '_blank'){
+        return $this->withMeta(['target' => $target]);
+    }
+
+
+    /**
      * @inheritDoc
      */
     public function resolveForDisplay($resource, $attribute = null)
