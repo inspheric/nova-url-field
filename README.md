@@ -99,6 +99,14 @@ Url::make('Homepage')
     ->alwaysClickable(),
 ```
 
+#### Open in Same Tab
+By default, the clickable link will open in a new tab (using `target="_blank"`). You can modify this behaviour so that the link opens in the same tab:
+
+```php
+Url::make('Homepage')
+    ->sameTab(),
+```
+
 ## Appearance
 ### Index (default)
 ![index-field](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/index-field.png)
