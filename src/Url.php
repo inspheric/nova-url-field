@@ -105,15 +105,15 @@ class Url extends Text
     }
 
     /**
-     * Whether the URL should be opened in the same window or in new
+     * Whether the URL should be opened in the same tab.
      *
-     * @param  bool $target
+     * @param  bool $sameTab
      * @return $this
      */
-    public function target(string $target = '_blank'){
-        return $this->withMeta(['target' => $target]);
+    public function sameTab(bool $sameTab = true)
+    {
+        return $this->withMeta(['sameTab' => $sameTab]);
     }
-
 
     /**
      * @inheritDoc
