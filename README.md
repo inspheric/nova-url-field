@@ -53,6 +53,25 @@ Url::make('Homepage')
 
 The arguments `$value` and `$resource` are passed in the same way as the callback for `resolveUsing()`, but are optional.
 
+#### Title
+
+Make the field to have a title which will display when mouse hovering over it on the detail or index pages:
+
+```php
+Url::make('Homepage')
+    ->title('Link title'),
+```
+
+#### Title Using
+Make the field with a title using a callback:
+
+```php
+Url::make('Homepage')
+    ->titleUsing(function($value, $resource) {
+        return $this->title;
+    }),
+```
+
 #### Domain Label
 A shortcut method to display the domain part only of the URL (i.e. without `https?://www.`) as the label:
 

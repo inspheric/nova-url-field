@@ -1,7 +1,7 @@
 <template>
         <div>
             <a :href="field.value"
-                :title="field.value"
+                :title="field.title || field.value"
                 v-if="field.value && clickable"
                 class="cursor-pointer dim no-underline text-primary flex items-center"
                 target="_blank"

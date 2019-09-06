@@ -21,6 +21,13 @@ class Url extends Text
     public $labelCallback;
 
     /**
+     * The callback to be used to resolve the field's title.
+     *
+     * @var \Closure
+     */
+    public $titleCallback;
+
+    /**
      * The label to display instead of the URL.
      *
      * @param  string $label
@@ -40,6 +47,30 @@ class Url extends Text
     public function labelUsing(callable $labelCallback)
     {
         $this->labelCallback = $labelCallback;
+
+        return $this;
+    }
+
+    /**
+     * The title to display when hover on url.
+     *
+     * @param  string $title
+     * @return $this
+     */
+    public function title(string $title = null)
+    {
+        return $this->withMeta(['title' => $title]);
+    }
+
+    /**
+     * Define the callback that should be used to resolve the field's title.
+     *
+     * @param  callable  $titleCallback
+     * @return $this
+     */
+    public function titleUsing(callable $titleCallback)
+    {
+        $this->titleCallback = $titleCallback;
 
         return $this;
     }
@@ -112,7 +143,11 @@ class Url extends Text
         parent::resolveForDisplay($resource, $attribute);
 
         if (is_callable($this->labelCallback)) {
-                $this->label(call_user_func($this->labelCallback, $this->value, $resource));
+            $this->label(call_user_func($this->labelCallback, $this->value, $resource));
+        }
+
+        if (is_callable($this->titleCallback)) {
+            $this->title(call_user_func($this->titleCallback, $this->value, $resource));
         }
     }
 }
