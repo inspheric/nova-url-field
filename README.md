@@ -55,15 +55,19 @@ The arguments `$value` and `$resource` are passed in the same way as the callbac
 
 #### Title
 
-Make the field to have a title which will display when mouse hovering over it on the detail or index pages:
+Set the link's title attribute, which will be displayed when the mouse hovers over it:
 
 ```php
 Url::make('Homepage')
     ->title('Link title'),
 ```
 
+You can, of course use the Laravel `trans()` or `__()` functions to translate the label. If no custom title is set, the full URL value will be used.
+
+The title is only used if the link is clickable.
+
 #### Title Using
-Make the field with a title using a callback:
+Set the title using a callback:
 
 ```php
 Url::make('Homepage')
