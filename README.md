@@ -53,6 +53,29 @@ Url::make('Homepage')
 
 The arguments `$value` and `$resource` are passed in the same way as the callback for `resolveUsing()`, but are optional.
 
+#### Title
+
+Set the link's title attribute, which will be displayed when the mouse hovers over it:
+
+```php
+Url::make('Homepage')
+    ->title('Link title'),
+```
+
+You can, of course use the Laravel `trans()` or `__()` functions to translate the label. If no custom title is set, the full URL value will be used.
+
+The title is only used if the link is clickable.
+
+#### Title Using
+Set the title using a callback:
+
+```php
+Url::make('Homepage')
+    ->titleUsing(function($value, $resource) {
+        return $this->title;
+    }),
+```
+
 #### Domain Label
 A shortcut method to display the domain part only of the URL (i.e. without `https?://www.`) as the label:
 
