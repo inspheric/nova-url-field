@@ -136,6 +136,17 @@ class Url extends Text
     }
 
     /**
+     * Whether the URL should be opened in the same tab.
+     *
+     * @param  bool $sameTab
+     * @return $this
+     */
+    public function sameTab(bool $sameTab = true)
+    {
+        return $this->withMeta(['sameTab' => $sameTab]);
+    }
+
+    /**
      * @inheritDoc
      */
     public function resolveForDisplay($resource, $attribute = null)
