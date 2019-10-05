@@ -52,7 +52,7 @@ class Url extends Text
     }
 
     /**
-     * The title to display when hover on url.
+     * The title to display when hovering over the URL.
      *
      * @param  string $title
      * @return $this
