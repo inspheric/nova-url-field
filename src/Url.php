@@ -28,6 +28,12 @@ class Url extends Text
     public $titleCallback;
 
     /**
+     * The link tag's rel attribute.
+     * @var array
+     */
+    protected $rel = ['noopener' => true];
+
+    /**
      * The label to display instead of the URL.
      *
      * @param  string $label
@@ -143,7 +149,34 @@ class Url extends Text
      */
     public function sameTab(bool $sameTab = true)
     {
-        return $this->withMeta(['sameTab' => $sameTab]);
+        return $this->noopener(!$sameTab)
+            ->withMeta(['sameTab' => $sameTab]);
+    }
+
+    /**
+     * Set the rel=noopener attribute.
+     *
+     * @param  bool $noopener
+     * @return $this
+     */
+    public function noopener(bool $noopener = true)
+    {
+        $this->rel['noopener'] = $noopener;
+
+        return $this;
+    }
+
+    /**
+     * Set the rel=noreferrer attribute.
+     *
+     * @param  bool $noreferrer
+     * @return $this
+     */
+    public function noreferrer(bool $noreferrer = true)
+    {
+        $this->rel['noreferrer'] = $noreferrer;
+
+        return $this;
     }
 
     /**
@@ -160,5 +193,9 @@ class Url extends Text
         if (is_callable($this->titleCallback)) {
             $this->title(call_user_func($this->titleCallback, $this->value, $resource));
         }
+
+        $rel = implode(' ', array_keys(array_filter($this->rel)));
+
+        $this->withMeta(['rel' => $rel]);
     }
 }

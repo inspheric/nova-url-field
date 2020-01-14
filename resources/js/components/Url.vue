@@ -5,7 +5,7 @@
                 v-if="field.value && clickable"
                 class="cursor-pointer dim no-underline text-primary flex items-center"
                 :target="field.sameTab ? '_self' : '_blank'"
-                rel="noreferrer noopener"
+                :rel="field.rel"
             >
                 <svg xmlns="http://www.w3.org/2000/svg"
                     class="fill-current mr-2 flex-no-shrink"
