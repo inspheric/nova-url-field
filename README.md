@@ -24,7 +24,7 @@ Url::make('Homepage')
 
 The field extends the `Laravel\Nova\Fields\Text` field, so all the usual methods are available.
 
-**Now supports readonly, placeholder and overriding the default `type="url"` if you prefer not to have the validation in the browser. This is from the standard Nova `Text` field so is not documented here.**
+Supports readonly, placeholder and overriding the default `type="url"` if you prefer not to have the validation in the browser. This is from the standard Nova `Text` field so is not documented here.
 
 It is recommended that you include the standard `url` and/or `active_url` validation rules, as they are not automatically added.
 
@@ -103,7 +103,7 @@ Make the field display as a link on the detail page:
 
 ```php
 Url::make('Homepage')
-    ->clickable(),
+    ->clickable(bool $clickable = true),
 ```
 
 #### Clickable on Index
@@ -111,7 +111,7 @@ Make the field display as a link on the index page:
 
 ```php
 Url::make('Homepage')
-    ->clickableOnIndex(),
+    ->clickableOnIndex(bool $clickable = true),
 ```
 
 #### Always Clickable
@@ -119,7 +119,7 @@ Combination of the two functions above for simplicity:
 
 ```php
 Url::make('Homepage')
-    ->alwaysClickable(),
+    ->alwaysClickable(bool $clickable = true),
 ```
 
 #### Open in Same Tab
@@ -127,8 +127,25 @@ By default, the clickable link will open in a new tab (using `target="_blank"`).
 
 ```php
 Url::make('Homepage')
-    ->sameTab(),
+    ->sameTab(bool $sameTab = true),
 ```
+
+#### `rel=noopener` and `rel=noreferrer`
+By default, a clickable link will open in a new tab and will have the `rel=noopener` attribute set*. If you use `sameTab()` as above, `rel=noopener` will be unset.
+
+To override the default behaviour, you can choose to set or unset `rel=noopener` and/or `rel=noreferrer` with the following methods:
+
+```php
+Url::make('Homepage')
+    ->noopener(bool $noopener = true),
+
+Url::make('Homepage')
+    ->noreferrer(bool $noreferrer = true),
+```
+
+If you use both `sameTab()` and `noopener()` on the same field, ensure that `noopener()` comes _after_ `sameTab()` or the two settings will cancel each other out.
+
+\* See [this article](https://mathiasbynens.github.io/rel-noopener/) for an explanation.
 
 ## Appearance
 ### Index (default)
