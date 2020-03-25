@@ -28,6 +28,13 @@ class Url extends Text
     public $titleCallback;
 
     /**
+     * The callback to be used to resolve the field's HTML customHtml.
+     *
+     * @var \Closure
+     */
+    public $customHtmlCallback;
+
+    /**
      * The link tag's rel attribute.
      * @var array
      */
@@ -180,6 +187,30 @@ class Url extends Text
     }
 
     /**
+     * The custom HTML to display on the index and detail pages.
+     *
+     * @param  string $customHtml
+     * @return $this
+     */
+    public function customHtml(string $customHtml = null)
+    {
+        return $this->withMeta(['customHtml' => $customHtml]);
+    }
+
+    /**
+     * Define the callback that should be used to resolve the field's custom HTML.
+     *
+     * @param  callable  $customHtmlCallback
+     * @return $this
+     */
+    public function customHtmlUsing(callable $customHtmlCallback)
+    {
+        $this->customHtmlCallback = $customHtmlCallback;
+
+        return $this;
+    }
+
+    /**
      * @inheritDoc
      */
     public function resolveForDisplay($resource, $attribute = null)
@@ -192,6 +223,11 @@ class Url extends Text
 
         if (is_callable($this->titleCallback)) {
             $this->title(call_user_func($this->titleCallback, $this->value, $resource));
+        }
+
+        if (is_callable($this->customHtmlCallback)) {
+            $label = $this->meta['label'] ?? null;
+            $this->customHtml(call_user_func($this->customHtmlCallback, $this->value, $resource, $label));
         }
 
         $rel = implode(' ', array_keys(array_filter($this->rel)));

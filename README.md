@@ -29,6 +29,14 @@ Supports readonly, placeholder and overriding the default `type="url"` if you pr
 It is recommended that you include the standard `url` and/or `active_url` validation rules, as they are not automatically added.
 
 ### Options
+
+> ##### Terminology: label, title, value
+> The terms "label", "title" and "value" are used to describe the following options. They should be understood within the generated HTML as follows:
+>
+> ```blade
+> <a href="{{ $value }}" title="{{ $title }}">{{ $label }}</a>
+> ```
+
 #### Label
 Make the field display with a label instead of the URL value itself on the detail or index pages:
 
@@ -53,27 +61,14 @@ Url::make('Homepage')
 
 The arguments `$value` and `$resource` are passed in the same way as the callback for `resolveUsing()`, but are optional.
 
-#### Title
+#### HTML Label
 
-Set the link's title attribute, which will be displayed when the mouse hovers over it:
-
-```php
-Url::make('Homepage')
-    ->title('Link title'),
-```
-
-You can, of course use the Laravel `trans()` or `__()` functions to translate the label. If no custom title is set, the full URL value will be used.
-
-The title is only used if the link is clickable.
-
-#### Title Using
-Set the title using a callback:
+If you would like to use custom HTML for the label, remember to also use the `asHtml()` option.
 
 ```php
 Url::make('Homepage')
-    ->titleUsing(function($value, $resource) {
-        return $this->title;
-    }),
+    ->label('<strong>External</strong> Link')
+    ->asHtml(),
 ```
 
 #### Domain Label
@@ -97,6 +92,29 @@ Url::make('Homepage')
 ```
 
 The label would be displayed as `Homepage`.
+
+#### Title
+
+Set the link's title attribute, which will be displayed when the mouse hovers over it:
+
+```php
+Url::make('Homepage')
+    ->title('Link title'),
+```
+
+You can, of course use the Laravel `trans()` or `__()` functions to translate the label. If no custom title is set, the full URL value will be used.
+
+The title is only used if the link is clickable.
+
+#### Title Using
+Set the title using a callback:
+
+```php
+Url::make('Homepage')
+    ->titleUsing(function($value, $resource) {
+        return $this->title;
+    }),
+```
 
 #### Clickable
 Make the field display as a link on the detail page:
@@ -146,6 +164,38 @@ Url::make('Homepage')
 If you use both `sameTab()` and `noopener()` on the same field, ensure that `noopener()` comes _after_ `sameTab()` or the two settings will cancel each other out.
 
 \* See [this article](https://mathiasbynens.github.io/rel-noopener/) for an explanation.
+
+#### Custom HTML
+
+If you do not wish the link to be displayed with the default icon and text, you can set custom HTML which will replace the entire contents of the default template:
+
+```php
+Url::make('Homepage')
+    ->customHtml('<span class="my-class">Click here!</span>'),
+```
+
+If the link is clickable, this content will be wrapped in an unstyled `<a>` tag which implements all of the other options you have specified, such as `sameTab`, `title` etc.
+
+If you _do_ want the link to appear as link-styled text, you can add the classes `dim text-primary` within the HTML you specify.
+
+**Important!** It is **your** responsibility to escape or sanitize any user-provided data before displaying it as raw HTML. This package does not do that for you.
+
+#### Custom HTML Using
+Set the custom HTML using a callback:
+
+```php
+Url::make('Homepage')
+    ->customHtmlUsing(function($value, $resource, $label) {
+        return view('partials.link_text', [
+            'url'   => $value,
+            'label' => $label,
+        ])->render();
+    }),
+```
+
+Note that the callback has a third argument `$label`, which will contain the appropriate label based on which of the `label()`, `labelUsing()`, `nameLabel()`, `domainLabel()` etc. options you have set on the field.
+
+Remember that if the link is clickable, the custom HTML you specify is already wrapped in an `<a href="">` tag, so you should not include an `<a>` tag in your own custom HTML.
 
 ## Appearance
 ### Index (default)
