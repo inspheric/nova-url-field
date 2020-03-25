@@ -178,8 +178,7 @@ If the link is clickable, this content will be wrapped in an unstyled `<a>` tag 
 
 If you _do_ want the link to appear as link-styled text, you can add the classes `dim text-primary` within the HTML you specify.
 
-##### Important Note
-It is **your** responsibility to escape or sanitize any user-provided data before displaying it as raw HTML. This package does not do that for you.
+**Important!** It is **your** responsibility to escape or sanitize any user-provided data before displaying it as raw HTML. This package does not do that for you.
 
 #### Custom HTML Using
 Set the custom HTML using a callback:
