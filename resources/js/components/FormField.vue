@@ -1,5 +1,5 @@
 <template>
-    <default-field :field="field" :errors="errors">
+    <DefaultField :field="field" :errors="errors">
         <template slot="field">
             <input
                 class="w-full form-control form-input form-input-bordered"
@@ -10,13 +10,15 @@
                 :disabled="isReadonly"
             />
         </template>
-    </default-field>
+    </DefaultField>
 </template>
 
 <script>
 import { FormField, HandlesValidationErrors } from 'laravel-nova'
 
 export default {
+    // props: ['resourceName', 'field'],
+
     mixins: [HandlesValidationErrors, FormField],
 
     computed: {

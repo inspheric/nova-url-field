@@ -1,9 +1,9 @@
 <template>
-    <panel-item :field="field">
-        <template slot="value">
-            <url-field :field="field" :clickable="field.clickable"></url-field>
+    <PanelItem :field="field">
+        <template #value>
+            <Url :field="field" :clickable="field.clickable"></Url>
         </template>
-    </panel-item>
+    </PanelItem>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
     props: ['resource', 'resourceName', 'resourceId', 'field'],
 
     components: {
-        'url-field': Url
-    }
+      Url
+    },
 }
 </script>

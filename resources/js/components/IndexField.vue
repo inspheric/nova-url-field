@@ -1,6 +1,6 @@
 <template>
     <div class="max-w-xs">
-        <url-field :field="field" :clickable="field.clickableOnIndex"></url-field>
+        <Url :field="field" :clickable="field.clickableOnIndex"></Url>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
     props: ['resourceName', 'field'],
 
     components: {
-        'url-field': Url
+      Url
     }
 }
 </script>
