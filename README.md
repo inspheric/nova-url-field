@@ -199,37 +199,37 @@ Remember that if the link is clickable, the custom HTML you specify is already w
 
 ## Appearance
 ### Index (default)
-![index-field](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/index-field.png)
+![index-field](docs/index-field.png)
 
 The field is displayed as a plain `<span>` element.
 
 ### Index (clickable)
-![index-field-clickable](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/index-field-clickable.png)
+![index-field-clickable](docs/index-field-clickable.png)
 
 The field is displayed as an `<a href="...">` element with an icon.
 
 ### Index (clickable with label)
-![index-field-clickable-label](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/index-field-clickable-label.png)
+![index-field-clickable-label](docs/index-field-clickable-label.png)
 
 The field is displayed as an `<a href="...">` element with an icon and a custom label.
 
 ### Detail (default)
-![detail-field](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/detail-field-plain.png)
+![detail-field](docs/detail-field-plain.png)
 
 The field is displayed as a plain `<span>` element.
 
 ### Detail (clickable)
-![detail-field-clickable](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/detail-field-clickable.png)
+![detail-field-clickable](docs/detail-field-clickable.png)
 
 The field is displayed as an `<a href="...">` element with an icon.
 
 ### Detail (clickable with label)
-![detail-field-clickable-label](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/detail-field-clickable-label.png)
+![detail-field-clickable-label](docs/detail-field-clickable-label.png)
 
 The field is displayed as an `<a href="...">` element with an icon and a custom label.
 
 ### Form
-![form-field](https://raw.githubusercontent.com/inspheric/nova-url-field/master/docs/form-field.png)
+![form-field](docs/form-field.png)
 
 The field is displayed as an `<input type="url">` element.
 
