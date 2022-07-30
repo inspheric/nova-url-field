@@ -1,9 +1,11 @@
 {
     "name": "inspheric/nova-url-field",
-    "description": "A Laravel Nova field.",
+    "description": "A Laravel Nova URL field.",
     "keywords": [
         "laravel",
-        "nova"
+        "nova",
+        "field",
+        "url"
     ],
     "license": "MIT",
     "require": {
@@ -18,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Inspheric\\Fields\\FieldServiceProvider"
+                "Inspheric\\Fields\\UrlFieldServiceProvider"
             ]
         }
     },
