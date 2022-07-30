@@ -1,7 +1,7 @@
 <template>
   <DefaultField :field="currentField" :errors="errors" :show-help-text="showHelpText">
     <template #field>
-      <input v-bind="extraAttributes" class="w-full form-control form-input form-input-bordered" type="url"
+      <input v-bind="extraAttributes" class="w-full form-control form-input form-input-bordered"
         @input="handleChange" :value="value" :id="currentField.uniqueKey" :dusk="field.attribute"
         :disabled="currentlyIsReadonly" :list="`${field.attribute}-list`" />
 
@@ -21,11 +21,7 @@ export default {
   computed: {
     defaultAttributes() {
       return {
-        type: this.currentField.type || 'text',
-        min: this.currentField.min,
-        max: this.currentField.max,
-        step: this.currentField.step,
-        pattern: this.currentField.pattern,
+        type: this.currentField.type || 'url',
         placeholder: this.currentField.placeholder || this.field.name,
         class: this.errorClasses,
       }
