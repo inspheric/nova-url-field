@@ -11,7 +11,7 @@ class Url extends Text
      *
      * @var string
      */
-    public $component = 'url-field';
+    public $component = 'inspheric-url-field';
 
     /**
      * The callback to be used to resolve the field's label.
@@ -95,7 +95,7 @@ class Url extends Text
      */
     public function domainLabel()
     {
-        return $this->labelUsing(function($value) {
+        return $this->labelUsing(function ($value) {
             $value = parse_url($value, PHP_URL_HOST) ?: $value;
             return preg_replace('`^(www\d?|m)\.`', '', $value);
         });

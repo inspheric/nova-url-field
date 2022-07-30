@@ -1,5 +1,9 @@
-Nova.booting((Vue, router) => {
-    Vue.component('index-url-field', require('./components/IndexField'));
-    Vue.component('detail-url-field', require('./components/DetailField'));
-    Vue.component('form-url-field', require('./components/FormField'));
+import IndexField from './components/IndexField'
+import DetailField from './components/DetailField'
+import FormField from './components/FormField'
+
+Nova.booting((app, store) => {
+  app.component('index-inspheric-url-field', IndexField)
+  app.component('detail-inspheric-url-field', DetailField)
+  app.component('form-inspheric-url-field', FormField)
 })

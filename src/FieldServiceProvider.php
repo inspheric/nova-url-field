@@ -2,11 +2,11 @@
 
 namespace Inspheric\Fields;
 
-use Laravel\Nova\Nova;
-use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Nova;
 
-class UrlFieldServiceProvider extends ServiceProvider
+class FieldServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -16,7 +16,7 @@ class UrlFieldServiceProvider extends ServiceProvider
     public function boot()
     {
         Nova::serving(function (ServingNova $event) {
-            Nova::script('url', __DIR__.'/../dist/js/field.js');
+            Nova::script('nova-url-field', __DIR__.'/../dist/js/field.js');
         });
     }
 

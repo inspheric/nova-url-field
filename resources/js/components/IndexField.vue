@@ -1,17 +1,15 @@
 <template>
-    <div class="max-w-xs">
-        <url-field :field="field" :clickable="field.clickableOnIndex"></url-field>
-    </div>
+  <UrlField :field="field" :clickable="field.clickable" />
 </template>
 
 <script>
-import Url from './Url'
+import UrlField from './UrlField'
 
 export default {
-    props: ['resourceName', 'field'],
+  props: ['resourceName', 'field'],
 
-    components: {
-        'url-field': Url
-    }
+  components: {
+    UrlField
+  }
 }
 </script>
