@@ -1,5 +1,5 @@
 # Laravel Nova URL Field
-A better URL input and link field for Laravel Nova
+A better URL input and link field for Laravel Nova. ***Version 2.0 now supports Nova 4.0 and Vue 3.0!***
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/inspheric/nova-url-field.svg?style=flat-square)](https://packagist.org/packages/inspheric/nova-url-field)
 [![Total Downloads](https://img.shields.io/packagist/dt/inspheric/nova-url-field.svg?style=flat-square)](https://packagist.org/packages/inspheric/nova-url-field)
