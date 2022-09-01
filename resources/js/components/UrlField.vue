@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center">
+  <div class="flex items-center" @click.stop>
     <a :href="field.value" :title="field.title || field.value" v-if="hasCustomHtml && clickable" class="link-default"
       :target="field.sameTab ? '_self' : '_blank'" :rel="field.rel" v-html="field.customHtml">
     </a>
