@@ -213,7 +213,7 @@ class Url extends Text
     /**
      * @inheritDoc
      */
-    public function resolveForDisplay($resource, $attribute = null)
+    public function resolveForDisplay($resource, $attribute = null): void
     {
         parent::resolveForDisplay($resource, $attribute);
 
